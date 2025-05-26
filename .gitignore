@@ -1,0 +1,8 @@
+*.flort.txt
+*.zip
+*.tar
+*.gz
+*.yaml
+__pycache__
+*.egg-info
+dist
