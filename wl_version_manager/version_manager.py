@@ -88,5 +88,27 @@ class VersionManager:
         self.write_version(new_version)
         self.update_setup_py(new_version)
 
+    @staticmethod
+    def get_version(version_file="VERSION", default_version="0.1.0"):
+        """
+        Get version from file, create with default if missing.
+        
+        Args:
+            version_file: Path to version file (default: "VERSION")
+            default_version: Default version if file doesn't exist (default: "0.1.0")
+            
+        Returns:
+            Version string
+        """
+        vm = VersionManager(version_file)
+        
+        try:
+            return vm.read_version()
+        except FileNotFoundError:
+            # Create VERSION file with default version
+            vm.write_version(default_version)
+            return default_version
+
+
 
 __all__ = ['VersionManager']

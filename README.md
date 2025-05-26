@@ -1,4 +1,4 @@
-# wl_version_manager
+# WL Version Manager
 
 A simple Python package for managing semantic versions in Python projects.
 
@@ -13,7 +13,7 @@ A simple Python package for managing semantic versions in Python projects.
 ## Installation
 
 ```bash
-pip install wl_version_manager
+pip install wl_wl_version_manager
 ```
 
 ## Usage
@@ -22,24 +22,24 @@ pip install wl_version_manager
 
 ```bash
 # Initialize version file
-version_manager init
+wl_version_manager init
 
 # Show current version
-version_manager current
+wl_version_manager current
 
 # Bump versions
-version_manager patch   # 1.0.0 -> 1.0.1
-version_manager minor   # 1.0.1 -> 1.1.0
-version_manager major   # 1.1.0 -> 2.0.0
+wl_version_manager patch   # 1.0.0 -> 1.0.1
+wl_version_manager minor   # 1.0.1 -> 1.1.0
+wl_version_manager major   # 1.1.0 -> 2.0.0
 
 # Set specific version
-version_manager set 1.2.3
+wl_version_manager set 1.2.3
 ```
 
 ### Python API
 
 ```python
-from version_manager import VersionManager
+from wl_version_manager import VersionManager
 
 vm = VersionManager()
 
@@ -59,7 +59,7 @@ vm.set_version("2.1.0")
 
 ```makefile
 build:
-	version_manager patch
+	wl_version_manager patch
 	python setup.py sdist
 ```
 
@@ -72,7 +72,7 @@ The tool expects:
 ## Options
 
 ```bash
-version_manager --version-file custom_version.txt --setup-file custom_setup.py current
+wl_version_manager --version-file custom_version.txt --setup-file custom_setup.py current
 ```
 
 ## License

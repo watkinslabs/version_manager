@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Command-line interface for version_manager
+Command-line interface for wl_version_manager
 """
 
 import sys

@@ -42,28 +42,29 @@ clean:
 	find . -type f -name "*.pyc" -delete
 
 # Build the package
-build: increment-version clean
+build: clean increment-version
 	$(PYTHON) setup.py sdist
 
 # Version management using self (bootstrapped)
 increment-version:
-	$(PYTHON) -m version_manager.cli patch
+	@if [ ! -f VERSION ]; then $(PYTHON) -m ${MODULE_NAME}.cli init; fi
+	$(PYTHON) -m ${MODULE_NAME}.cli patch
 
 bump-minor:
-	$(PYTHON) -m version_manager.cli minor
+	$(PYTHON) -m ${MODULE_NAME}.cli minor
 
 bump-major:
-	$(PYTHON) -m version_manager.cli major
+	$(PYTHON) -m ${MODULE_NAME}.cli major
 
 set-version:
 	@read -p "Enter version (e.g., 1.2.3): " version; \
-	$(PYTHON) -m version_manager.cli set $version
+	$(PYTHON) -m ${MODULE_NAME}.cli set $version
 
 current-version:
-	$(PYTHON) -m version_manager.cli current
+	$(PYTHON) -m ${MODULE_NAME}.cli current
 
 init-version:
-	$(PYTHON) -m version_manager.cli init
+	$(PYTHON) -m ${MODULE_NAME}.cli init
 
 # Run tests
 test:

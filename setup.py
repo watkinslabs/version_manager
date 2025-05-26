@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 
 from setuptools import setup, find_packages
+from wl_version_manager import VersionManager
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-with open("VERSION", "r") as f:
-    version = f.read().strip()
+version = VersionManager.get_version()
+
 
 setup(
     name="wl_version_manager",
@@ -17,7 +18,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/watkinslabs/version_manager",
-    py_modules=["version_manager"],
+    packages=find_packages(),
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
@@ -37,7 +38,7 @@ setup(
     python_requires=">=3.6",
     entry_points={
         'console_scripts': [
-            'version_manager=version_manager:main',
+            'wl_version_manager=wl_version_manager.cli:main',
         ],
     },
     keywords="version, versioning, semantic, semver, build, packaging",
